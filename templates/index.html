@@ -5,9 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Music Vibe Classifier</title>
+    <title>Classificador de Vibe Musical</title>
 
     <link rel="stylesheet" href="static/style.css">
+    <style>
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +38,11 @@
                 <span class="logo-icon">♫</span>
                 <span>VIBE<span class="highlight">MUSIC</span></span>
             </div>
+
+            <nav class="nav-links">
+                <a href="/" class="active">Predição</a>
+                <a href="/dashboard">Painel</a>
+            </nav>
 
             <div class="api-status">
                 <span id="statusIndicator" class="status-dot"></span>
@@ -51,7 +73,7 @@
                     <p>Configure os parâmetros da música.</p>
                 </div>
 
-                <span class="feature-count">07 FEATURES</span>
+                <span class="feature-count">07 CARACTERÍSTICAS</span>
             </div>
 
             <form id="musicForm">
@@ -61,7 +83,7 @@
                     <div class="feature-card">
                         <div class="feature-header">
                             <label for="danceability">
-                                Danceability
+                                Dançabilidade (Danceability)
                             </label>
                             <span id="danceabilityValue">0.70</span>
                         </div>
@@ -73,7 +95,7 @@
 
                     <div class="feature-card">
                         <div class="feature-header">
-                            <label for="energy">Energy</label>
+                            <label for="energy">Energia (Energy)</label>
                             <span id="energyValue">0.80</span>
                         </div>
 
@@ -84,7 +106,7 @@
 
                     <div class="feature-card">
                         <div class="feature-header">
-                            <label for="valence">Valence</label>
+                            <label for="valence">Positividade (Valence)</label>
                             <span id="valenceValue">0.60</span>
                         </div>
 
@@ -95,7 +117,7 @@
 
                     <div class="feature-card">
                         <div class="feature-header">
-                            <label for="tempo">Tempo</label>
+                            <label for="tempo">Ritmo (Tempo)</label>
                             <span id="tempoValue">120 BPM</span>
                         </div>
 
@@ -107,7 +129,7 @@
                     <div class="feature-card">
                         <div class="feature-header">
                             <label for="acousticness">
-                                Acousticness
+                                Acústica (Acousticness)
                             </label>
                             <span id="acousticnessValue">0.20</span>
                         </div>
@@ -120,7 +142,7 @@
                     <div class="feature-card">
                         <div class="feature-header">
                             <label for="instrumentalness">
-                                Instrumentalness
+                                Instrumental (Instrumentalness)
                             </label>
                             <span id="instrumentalnessValue">0.10</span>
                         </div>
@@ -133,7 +155,7 @@
                     <div class="feature-card full-width">
                         <div class="feature-header">
                             <label for="speechiness">
-                                Speechiness
+                                Presença Vocal (Speechiness)
                             </label>
                             <span id="speechinessValue">0.15</span>
                         </div>
@@ -162,7 +184,7 @@
             <div class="result-top">
                 <span class="tag">RESULTADO DA IA</span>
                 <span id="clusterBadge" class="cluster-badge">
-                    CLUSTER 0
+                    GRUPO 0
                 </span>
             </div>
 
@@ -171,7 +193,7 @@
 
                 <div>
                     <h2 id="vibeName">
-                        High Energy / Festa e Pista
+                        Alta Energia / Festa e Pista
                     </h2>
 
                     <p id="resultDescription">
@@ -193,7 +215,7 @@
             </p>
 
             <p class="footer-brand">
-                VIBE MUSIC · AI CLASSIFIER
+                VIBE MUSIC · CLASSIFICADOR IA
             </p>
         </footer>
 

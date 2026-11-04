@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Music Vibe Classifier</title>
+
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+    <div class="background-glow"></div>
+
+    <main class="container">
+
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">♫</span>
+                <span>VIBE<span class="highlight">MUSIC</span></span>
+            </div>
+
+            <div class="api-status">
+                <span id="statusIndicator" class="status-dot"></span>
+                <span id="statusText">Conectando à API...</span>
+            </div>
+        </header>
+
+        <section class="hero">
+            <span class="tag">MACHINE LEARNING · K-MEANS</span>
+
+            <h1>
+                Descubra a<br>
+                <span class="gradient-text">vibe da música.</span>
+            </h1>
+
+            <p>
+                Explore as características sonoras de uma música
+                e deixe nossa inteligência artificial descobrir
+                sua identidade musical.
+            </p>
+        </section>
+
+        <section class="classifier">
+
+            <div class="section-header">
+                <div>
+                    <h2>Características musicais</h2>
+                    <p>Configure os parâmetros da música.</p>
+                </div>
+
+                <span class="feature-count">07 FEATURES</span>
+            </div>
+
+            <form id="musicForm">
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <label for="danceability">
+                                Danceability
+                            </label>
+                            <span id="danceabilityValue">0.70</span>
+                        </div>
+
+                        <p>Potencial de fazer dançar.</p>
+
+                        <input type="range" id="danceability" min="0" max="1" step="0.01" value="0.70">
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <label for="energy">Energy</label>
+                            <span id="energyValue">0.80</span>
+                        </div>
+
+                        <p>Intensidade e energia sonora.</p>
+
+                        <input type="range" id="energy" min="0" max="1" step="0.01" value="0.80">
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <label for="valence">Valence</label>
+                            <span id="valenceValue">0.60</span>
+                        </div>
+
+                        <p>Positividade e felicidade musical.</p>
+
+                        <input type="range" id="valence" min="0" max="1" step="0.01" value="0.60">
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <label for="tempo">Tempo</label>
+                            <span id="tempoValue">120 BPM</span>
+                        </div>
+
+                        <p>Velocidade da música em BPM.</p>
+
+                        <input type="range" id="tempo" min="40" max="220" step="1" value="120">
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <label for="acousticness">
+                                Acousticness
+                            </label>
+                            <span id="acousticnessValue">0.20</span>
+                        </div>
+
+                        <p>Presença de elementos acústicos.</p>
+
+                        <input type="range" id="acousticness" min="0" max="1" step="0.01" value="0.20">
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <label for="instrumentalness">
+                                Instrumentalness
+                            </label>
+                            <span id="instrumentalnessValue">0.10</span>
+                        </div>
+
+                        <p>Probabilidade de ser instrumental.</p>
+
+                        <input type="range" id="instrumentalness" min="0" max="1" step="0.01" value="0.10">
+                    </div>
+
+                    <div class="feature-card full-width">
+                        <div class="feature-header">
+                            <label for="speechiness">
+                                Speechiness
+                            </label>
+                            <span id="speechinessValue">0.15</span>
+                        </div>
+
+                        <p>Presença de fala e conteúdo vocal.</p>
+
+                        <input type="range" id="speechiness" min="0" max="1" step="0.01" value="0.15">
+                    </div>
+
+                </div>
+
+                <button type="submit" id="classifyButton">
+                    <span>♫</span>
+                    Classificar minha música
+                    <span class="button-arrow">→</span>
+                </button>
+
+            </form>
+
+            <div id="errorMessage" class="error-message hidden"></div>
+
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-top">
+                <span class="tag">RESULTADO DA IA</span>
+                <span id="clusterBadge" class="cluster-badge">
+                    CLUSTER 0
+                </span>
+            </div>
+
+            <div class="result-content">
+                <div id="resultIcon" class="result-icon">🔥</div>
+
+                <div>
+                    <h2 id="vibeName">
+                        High Energy / Festa e Pista
+                    </h2>
+
+                    <p id="resultDescription">
+                        Sua música foi classificada pelo modelo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="result-footer">
+                <span>Classificação realizada pelo modelo K-Means</span>
+                <span id="resultTimestamp"></span>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>
+                Desenvolvido com Python, Flask e Machine Learning.
+            </p>
+
+            <p class="footer-brand">
+                VIBE MUSIC · AI CLASSIFIER
+            </p>
+        </footer>
+
+    </main>
+
+    <script src="static/script.js"></script>
+
+</body>
+
+</html>

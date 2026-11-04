@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import pickle
 
@@ -21,7 +21,13 @@ cluster_labels = {
 
 @app.route("/", methods=["GET"])
 def home():
+    return render_template("index.html")
+
+
+@app.route("/api", methods=["GET"])
+def api():
     return jsonify({"status": "API Online", "message": "API do K-Means de Músicas rodando!"})
+
 
 @app.route("/api/predict", methods=["POST"])
 def predict():
